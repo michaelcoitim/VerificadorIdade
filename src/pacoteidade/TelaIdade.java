@@ -1,13 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package pacoteidade;
+
+import java.awt.Color;
+import java.util.Calendar;
 
 /**
  *
- * @author micha
+ * @author Michael coitim
  */
 public class TelaIdade extends javax.swing.JFrame {
 
@@ -38,7 +37,7 @@ public class TelaIdade extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Malgun Gothic", 1, 14)); // NOI18N
         jLabel1.setText("Verifica Situação Idade");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -48,10 +47,17 @@ public class TelaIdade extends javax.swing.JFrame {
 
         jLabel4.setText("Situação");
 
+        btnCalc.setForeground(new java.awt.Color(0, 51, 204));
         btnCalc.setText("Calcular Idade");
+        btnCalc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcActionPerformed(evt);
+            }
+        });
 
         lblIdade.setText("0");
 
+        lblSituacao.setForeground(new java.awt.Color(102, 102, 102));
         lblSituacao.setText("<vazio>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -60,9 +66,6 @@ public class TelaIdade extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(134, 134, 134)
-                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -74,8 +77,11 @@ public class TelaIdade extends javax.swing.JFrame {
                             .addComponent(btnCalc)
                             .addComponent(txtAno, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(55, Short.MAX_VALUE))
+                            .addComponent(lblSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,11 +102,30 @@ public class TelaIdade extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(lblSituacao))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcActionPerformed
+        // methodo calcula idade (evento do botão)
+        Calendar  cal = Calendar.getInstance();
+        int anoAtual = cal.getWeekYear();
+        int anoNas= Integer.parseInt(txtAno.getText());
+        int idade = anoAtual - anoNas;
+        
+        lblIdade.setText(Integer.toString(idade));
+        lblIdade.setForeground(Color.blue);
+        
+        if(idade >= 18){
+            lblSituacao.setText("MAIOR");
+            lblSituacao.setForeground(Color.blue);
+        } else{
+            lblSituacao.setText("MENOR");
+            lblSituacao.setForeground(Color.red);
+        }
+    }//GEN-LAST:event_btnCalcActionPerformed
 
     /**
      * @param args the command line arguments
