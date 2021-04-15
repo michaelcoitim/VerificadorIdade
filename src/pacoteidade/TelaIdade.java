@@ -120,7 +120,7 @@ public class TelaIdade extends javax.swing.JFrame {
         
         lblIdade.setText(Integer.toString(idade));
         lblIdade.setForeground(Color.blue);
-        /*
+        
         if(idade >= 18){
            // lblSituacao.setText("MAIOR");
             lblSituacao.setForeground(Color.blue);
@@ -129,7 +129,7 @@ public class TelaIdade extends javax.swing.JFrame {
             lblSituacao.setForeground(Color.red); 
         
         }
-        */
+        
         
     }//GEN-LAST:event_btnCalcActionPerformed
 
