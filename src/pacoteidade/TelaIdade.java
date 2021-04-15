@@ -114,17 +114,23 @@ public class TelaIdade extends javax.swing.JFrame {
         int anoAtual = cal.getWeekYear();
         int anoNas= Integer.parseInt(txtAno.getText());
         int idade = anoAtual - anoNas;
+        String sit = (idade>=18)?"MAIOR": "MENOR";
+        
+        lblSituacao.setText(sit);
         
         lblIdade.setText(Integer.toString(idade));
         lblIdade.setForeground(Color.blue);
-        
+        /*
         if(idade >= 18){
-            lblSituacao.setText("MAIOR");
+           // lblSituacao.setText("MAIOR");
             lblSituacao.setForeground(Color.blue);
         } else{
-            lblSituacao.setText("MENOR");
-            lblSituacao.setForeground(Color.red);
+            //lblSituacao.setText("MENOR");
+            lblSituacao.setForeground(Color.red); 
+        
         }
+        */
+        
     }//GEN-LAST:event_btnCalcActionPerformed
 
     /**
